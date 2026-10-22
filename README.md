@@ -2,7 +2,7 @@
 
 **Will this ship wait more than 24 hours for a berth, how sure are we, and why?**
 
-📄 Project document: [report/final/project_document.pdf](report/final/project_document.pdf) (4 pages)
+Project document (4 pages): [report/final/project_document.pdf](report/final/project_document.pdf)
 
 ## The problem
 
@@ -72,8 +72,8 @@ One real case: a container ship arriving at the TCP terminal in Paranaguá on 1 
 
 | What | Version used | Notes |
 |---|---|---|
-| **Python** | **3.12.7** | 3.11 or newer should work. [python.org/downloads](https://www.python.org/downloads/) |
-| **Git** | 2.49.0 | To clone this repository. |
+| **Python** | **3.12.7** | [python.org/downloads](https://www.python.org/downloads/) |
+| **Git** | 2.49.0 | To clone this repository. [git-scm.com](https://git-scm.com/downloads) |
 | **Web browser** | any recent Chrome, Edge or Firefox | For the app; the 3D view needs WebGL. |
 | **Disk space** | about 3.5 GB | 2.4 GB of ANTAQ data, ~0.5 GB of models and features. |
 | **Internet** | needed once | To download the ANTAQ tables (Zenodo) and the weather (Open-Meteo). No accounts or API keys are needed. |
@@ -89,7 +89,7 @@ Python packages (installed by `pip install -r requirements.txt`, exact versions 
 | lightgbm | 4.7.0 | The four models |
 | streamlit | 1.66.0 | The web app |
 | requests | 2.34.2 | Downloading the data and weather |
-| matplotlib | 3.11.2 | Report charts |
+| matplotlib | 3.11.2 | Calibration charts written by `train.py` |
 | pytest | 9.1.1 | The automatic checks |
 
 ## How to run it
@@ -97,10 +97,10 @@ Python packages (installed by `pip install -r requirements.txt`, exact versions 
 The data and trained models are not stored in this repository (they are large), so the first run downloads the data and builds everything.
 
 ```bash
-git clone <this repository's URL>
-cd <repository folder>
+git clone https://github.com/IDKYICODE/Port-congestion-predictor.git
+cd Port-congestion-predictor
 python -m venv .venv
-.venv\Scripts\activate          # macOS / Linux: source .venv/bin/activate
+.venv\Scripts\activate          # Windows; on macOS / Linux: source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -122,7 +122,8 @@ Then run these steps in order (times measured on a laptop):
 
 Tip: `http://localhost:8501/?port=Paranaguá` opens a port directly.
 
-**Notes**
+### Notes
+
 - ANTAQ's own website blocks scripted downloads, so step 1 reads only the needed tables from the public **Zenodo mirror** (record 20549767, CC BY 4.0).
 - ANTAQ files are sorted by the year a ship **left**, so the 2025 files are needed for ships that arrived in late 2024.
 - Every design choice was made on the second half of 2023; 2024 was used only for the final test.
