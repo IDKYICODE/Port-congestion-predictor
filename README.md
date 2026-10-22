@@ -32,6 +32,10 @@ Tested on all **17,417 arrivals of 2024**, a year the system never saw while it 
 | **ROC-AUC** | **0.873** | **0.836** | Pick one delayed and one on-time ship at random: 87 times out of 100 the delayed one gets the higher risk. |
 | **Typical hours error** | **17.6 h** | **20.2 h** | Half of all wait estimates are within about 18 hours of the real wait. |
 
+These numbers can be reproduced with `python src/show_results.py`, which recomputes them from the saved 2024 predictions:
+
+![Results on the 2024 test set](report/final/figures/results_terminal.png)
+
 ## System architecture
 
 The system is built on **four LightGBM models**. All four use the same **108 features** (line of ships, berths in use, recent waits, queue maths, the ship's previous voyage, cargo, weather, calendar), computed only from events **before** the prediction moment, and all four are **retrained on the 1st of every month** on every port call whose outcome is already known by that day.
@@ -117,7 +121,8 @@ Then run these steps in order (times measured on a laptop):
 | 7. **Monthly models for 2024** | `python src/build_monthly.py` | `models/monthly/`, `report/metrics_monthly_h*.json` | ~45 min |
 | 8. Confidence check + port outlook | `python src/port_outlook.py` | `preds_2024_h*.parquet` | 4 min |
 | 9. What-if audit | `python src/audit_whatif.py 2` | `report/audit_whatif.json` (expect 0 problems) | ~25 min |
-| 10. **Start the app** | `streamlit run app.py` | opens http://localhost:8501 | |
+| 10. **Show the results** | `python src/show_results.py` | the results table above | 5 s |
+| 11. **Start the app** | `streamlit run app.py` | opens http://localhost:8501 | |
 | Checks | `pytest tests -q` | 22 automatic checks | 10 s |
 
 Tip: `http://localhost:8501/?port=Paranaguá` opens a port directly.
@@ -143,6 +148,7 @@ src/build_monthly.py   the production models: retrained every month
 src/explain.py         reasons (TreeSHAP → 9 plain causes), actions, what-if engine with its safety guard
 src/port_outlook.py    2024 predictions, confidence check, weekly port outlook
 src/audit_whatif.py    automatic audit of the what-if sliders
+src/show_results.py    recompute and print the 2024 test results
 src/scene.py           the 3D port view (Three.js)
 tests/                 22 automatic checks (no peeking at the future, queue counting, what-if rules, ...)
 report/                test results (JSON) and the project document (Word, PDF) with its figures
