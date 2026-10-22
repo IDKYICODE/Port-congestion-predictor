@@ -1,0 +1,27 @@
+{
+  "counts": {
+    "ships": 236,
+    "identity": 236,
+    "predictions": 2578,
+    "mono_queue": 236,
+    "mono_closed": 219
+  },
+  "violations": {
+    "identity": 0,
+    "mono_queue": 0,
+    "mono_closed": 0,
+    "range": 0,
+    "consistency": 0,
+    "explanation": 0,
+    "scene": 0
+  },
+  "examples": {
+    "identity": [],
+    "mono_queue": [],
+    "mono_closed": [],
+    "range": [],
+    "consistency": [],
+    "explanation": [],
+    "scene": []
+  }
+}

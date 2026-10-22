@@ -1,0 +1,9 @@
+data/
+__pycache__/
+*.pyc
+.venv/
+models/
+train.log
+catboost_info/
+report/figures/
+*.log

@@ -1,0 +1,18 @@
+{
+  "horizon_h": 72,
+  "n_test": 17417,
+  "threshold": 0.22999999999999998,
+  "conformal_q": 0.04237904976355368,
+  "accuracy_at_0.5": 0.750703335821324,
+  "auc": 0.8362043781220961,
+  "brier": 0.16536660609958634,
+  "recall_at_thr": 0.9375213772659902,
+  "precision_at_thr": 0.6251330393796564,
+  "accuracy_at_thr": 0.6854222885686398,
+  "hours_median_err": 20.20384103586874,
+  "hours_mean_err": 57.0011956218366,
+  "hours_within_12h": 0.3922604352069817,
+  "hours_within_24h": 0.5376930585060573,
+  "range_coverage_80": 0.8009416087730379,
+  "range_median_width": 120.55653442598462
+}

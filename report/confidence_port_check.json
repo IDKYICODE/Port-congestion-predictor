@@ -1,0 +1,84 @@
+{
+  "h0": {
+    "confidence": [
+      {
+        "band": "(0.499, 0.6]",
+        "ships": 2745,
+        "avg_confidence": 0.55,
+        "actually_right": 0.556
+      },
+      {
+        "band": "(0.6, 0.7]",
+        "ships": 2830,
+        "avg_confidence": 0.65,
+        "actually_right": 0.641
+      },
+      {
+        "band": "(0.7, 0.8]",
+        "ships": 2965,
+        "avg_confidence": 0.75,
+        "actually_right": 0.748
+      },
+      {
+        "band": "(0.8, 0.9]",
+        "ships": 3505,
+        "avg_confidence": 0.853,
+        "actually_right": 0.858
+      },
+      {
+        "band": "(0.9, 1.0]",
+        "ships": 5372,
+        "avg_confidence": 0.954,
+        "actually_right": 0.956
+      }
+    ],
+    "port_week": {
+      "port_weeks": 742,
+      "share_mae_pts": 7.914411610049068,
+      "share_within_10pts": 0.7129380053908356,
+      "share_corr": 0.9120065609232274,
+      "wait_median_abs_err_h": 7.029914602230372
+    }
+  },
+  "h72": {
+    "confidence": [
+      {
+        "band": "(0.499, 0.6]",
+        "ships": 3811,
+        "avg_confidence": 0.55,
+        "actually_right": 0.553
+      },
+      {
+        "band": "(0.6, 0.7]",
+        "ships": 3295,
+        "avg_confidence": 0.649,
+        "actually_right": 0.656
+      },
+      {
+        "band": "(0.7, 0.8]",
+        "ships": 3092,
+        "avg_confidence": 0.75,
+        "actually_right": 0.734
+      },
+      {
+        "band": "(0.8, 0.9]",
+        "ships": 3255,
+        "avg_confidence": 0.851,
+        "actually_right": 0.848
+      },
+      {
+        "band": "(0.9, 1.0]",
+        "ships": 3964,
+        "avg_confidence": 0.951,
+        "actually_right": 0.952
+      }
+    ],
+    "port_week": {
+      "port_weeks": 742,
+      "share_mae_pts": 9.206791675496104,
+      "share_within_10pts": 0.6509433962264151,
+      "share_corr": 0.8811983150213026,
+      "wait_median_abs_err_h": 8.76202515401964
+    }
+  }
+}
