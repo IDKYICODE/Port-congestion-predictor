@@ -32,10 +32,6 @@ Tested on all **17,417 arrivals of 2024**, a year the system never saw while it 
 | **ROC-AUC** | **0.873** | **0.836** | Pick one delayed and one on-time ship at random: 87 times out of 100 the delayed one gets the higher risk. |
 | **Typical hours error** | **17.6 h** | **20.2 h** | Half of all wait estimates are within about 18 hours of the real wait. |
 
-These numbers can be reproduced with `python src/show_results.py`, which recomputes them from the saved 2024 predictions:
-
-![Results on the 2024 test set](report/final/figures/results_terminal.png)
-
 ## System architecture
 
 The system is built on **four LightGBM models**. All four use the same **108 features** (line of ships, berths in use, recent waits, queue maths, the ship's previous voyage, cargo, weather, calendar), computed only from events **before** the prediction moment, and all four are **retrained on the 1st of every month** on every port call whose outcome is already known by that day.
@@ -48,9 +44,13 @@ The system is built on **four LightGBM models**. All four use the same **108 fea
 
   Together they give the **expected waiting range**, widened slightly (conformal calibration) so the real wait falls inside it 80% of the time (79.8% on 2024).
 
-## The app
+## Results
 
-One real case: a container ship arriving at the TCP terminal in Paranaguá on 1 January 2024. The system gave a 55% chance of delay; the ship really waited 46 hours.
+The results on the 2024 test set can be reproduced with `python src/show_results.py`, which recomputes them from the saved predictions:
+
+![Results on the 2024 test set](report/final/figures/results_terminal.png)
+
+The app, for one real case: a container ship arriving at the TCP terminal in Paranaguá on 1 January 2024. The system gave a 55% chance of delay; the ship really waited 46 hours.
 
 ![The prediction screen](report/final/figures/app_overview.png)
 
